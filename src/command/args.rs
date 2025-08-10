@@ -90,7 +90,7 @@ impl StringArg {
 	fn gen_choices(&self) -> Vec<&str> {
 		match self.choices {
 			"" => Vec::new(),
-			other => other.split('\n').collect(),
+			other => other.split('\n').filter(|s| !s.is_empty()).collect(),
 		}
 	}
 }
